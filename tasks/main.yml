@@ -1,47 +1,47 @@
 ---
-  - name: Install NTP
-    yum: >
-      name=ntp
-      state=installed
+- name: Install NTP
+  yum: >
+    name=ntp
+    state=installed
 
-  - name: Copy NTP configuration file
-    template: >
-      src=ntp.conf.tpl
-      dest=/etc/ntp.conf
-      owner=root
-      group=root
-      mode=664
-    notify: restart_ntpd
+- name: Copy NTP configuration file
+  template: >
+    src=ntp.conf.tpl
+    dest=/etc/ntp.conf
+    owner=root
+    group=root
+    mode=664
+  notify: restart_ntpd
 
-  - name: Create /etc/ntp/step-tickers file
-    template: >
-      src=step-tickers.tpl
-      dest=/etc/ntp/step-tickers
-      owner=root
-      group=root
-      mode=664
-    notify: restart_ntpd
+- name: Create /etc/ntp/step-tickers file
+  template: >
+    src=step-tickers.tpl
+    dest=/etc/ntp/step-tickers
+    owner=root
+    group=root
+    mode=664
+  notify: restart_ntpd
 
-  - name: Set /etc/localtime file
-    file: >
-      src=/usr/share/zoneinfo/{{ ntp_config_timezone }}
-      dest=/etc/localtime
-      force=yes
-      state=link
-    notify: restart_ntpd
+- name: Set /etc/localtime file
+  file: >
+    src=/usr/share/zoneinfo/{{ ntp_config_timezone }}
+    dest=/etc/localtime
+    force=yes
+    state=link
+  notify: restart_ntpd
 
-  - name: Set /etc/sysconfig/clock file
-    template: >
-      src=clock.tpl
-      dest=/etc/sysconfig/clock
-      owner=root
-      group=root
-      mode=644
-    notify: restart_ntpd
+- name: Set /etc/sysconfig/clock file
+  template: >
+    src=clock.tpl
+    dest=/etc/sysconfig/clock
+    owner=root
+    group=root
+    mode=644
+  notify: restart_ntpd
 
-  - name: Start and enable NTP service
-    service: >
-      name=ntpd
-      state=started
-      enabled=yes
-    when: ntp_config_enabled is true
+- name: Start and enable NTP service
+  service: >
+    name=ntpd
+    state=started
+    enabled=yes
+  when: ntp_config_enabled is true
