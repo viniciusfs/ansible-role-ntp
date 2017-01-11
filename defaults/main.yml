@@ -1,0 +1,4 @@
+---
+ntp_config_started: true
+ntp_config_servers: [ "a.ntp.br", "b.ntp.br", "c.ntp.br" ]
+ntp_config_timezone: "America/Sao_Paulo"
