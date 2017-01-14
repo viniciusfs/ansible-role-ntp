@@ -6,7 +6,7 @@
 
 - name: Copy NTP configuration file
   template: >
-    src=ntp.conf.tpl
+    src=ntp.conf.j2
     dest=/etc/ntp.conf
     owner=root
     group=root
@@ -15,7 +15,7 @@
 
 - name: Create /etc/ntp/step-tickers file
   template: >
-    src=step-tickers.tpl
+    src=step-tickers.j2
     dest=/etc/ntp/step-tickers
     owner=root
     group=root
@@ -32,7 +32,7 @@
 
 - name: Set /etc/sysconfig/clock file
   template: >
-    src=clock.tpl
+    src=clock.j2
     dest=/etc/sysconfig/clock
     owner=root
     group=root
@@ -44,4 +44,4 @@
     name=ntpd
     state=started
     enabled=yes
-  when: ntp_config_enabled is true
+  when: ntp_config_enabled == True

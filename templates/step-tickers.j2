@@ -1,0 +1,8 @@
+#
+# {{ ansible_managed }}
+#
+
+{% for server in ntp_config_servers %}
+{{ server }}
+{% endfor %}
+
