@@ -14,20 +14,33 @@ def test_ntp_conf_file(File):
     assert ntp_conf.user == 'root'
     assert ntp_conf.group == 'root'
     assert ntp_conf.mode == 0664
+    assert ntp_conf.contains('server a.ntp.br iburst')
+    assert ntp_conf.contains('server b.ntp.br iburst')
+    assert ntp_conf.contains('server c.ntp.br iburst')
 
 
 def test_step_tickers_file(File):
-    ntp_conf = File('/etc/ntp/step-tickers')
-    assert ntp_conf.user == 'root'
-    assert ntp_conf.group == 'root'
-    assert ntp_conf.mode == 0664
+    step_tickers = File('/etc/ntp/step-tickers')
+    assert step_tickers.user == 'root'
+    assert step_tickers.group == 'root'
+    assert step_tickers.mode == 0664
+    assert step_tickers.contains('a.ntp.br')
+    assert step_tickers.contains('b.ntp.br')
+    assert step_tickers.contains('c.ntp.br')
+
+
+def test_localtime_file(File):
+    localtime = File('/etc/localtime')
+    assert localtime.is_symlink
+    assert localtime.linked_to == '/usr/share/zoneinfo/America/Sao_Paulo'
 
 
 def test_sysconfig_clock_file(File):
-    ntp_conf = File('/etc/sysconfig/clock')
-    assert ntp_conf.user == 'root'
-    assert ntp_conf.group == 'root'
-    assert ntp_conf.mode == 0644
+    sysconfig_clock = File('/etc/sysconfig/clock')
+    assert sysconfig_clock.user == 'root'
+    assert sysconfig_clock.group == 'root'
+    assert sysconfig_clock.mode == 0644
+    assert sysconfig_clock.contains('ZONE=America/Sao_Paulo')
 
 
 def test_ntp_running_and_enabled(Service):
