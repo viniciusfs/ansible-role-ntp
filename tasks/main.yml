@@ -10,7 +10,7 @@
     dest=/etc/ntp.conf
     owner=root
     group=root
-    mode=664
+    mode=0664
   notify: restart_ntpd
 
 - name: Create /etc/ntp/step-tickers file
@@ -19,7 +19,7 @@
     dest=/etc/ntp/step-tickers
     owner=root
     group=root
-    mode=664
+    mode=0664
   notify: restart_ntpd
 
 - name: Set /etc/localtime file
@@ -36,7 +36,7 @@
     dest=/etc/sysconfig/clock
     owner=root
     group=root
-    mode=644
+    mode=0644
   notify: restart_ntpd
 
 - name: Start and enable NTP service

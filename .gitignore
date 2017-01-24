@@ -1,2 +1,4 @@
-tests/
-.travis.yml
+.molecule/
+.vagrant/
+.cache/
+*.pyc
