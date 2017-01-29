@@ -1,15 +1,8 @@
 ---
-dependency:
-  name: galaxy
-
-driver:
-  name: vagrant
-
 vagrant:
   platforms:
-    - name: centos7
-      box: muxi/centos7
-      box_url: http://vagrant.muxi.corp/centos-7.3-x86_64-virtualbox.box
+    - name: centos-7
+      box: viniciusfs/centos7
   providers:
     - name: virtualbox
       type: virtualbox

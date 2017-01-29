@@ -1,4 +1,4 @@
 ---
 ntp_config_enabled: True
-ntp_config_servers: ["a.ntp.br", "b.ntp.br", "c.ntp.br"]
+ntp_config_servers: [ "0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org" ]
 ntp_config_timezone: "America/Sao_Paulo"
