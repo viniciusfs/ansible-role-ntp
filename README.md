@@ -1,6 +1,6 @@
 # Ansible role: NTP
 
-Install and configure NTP client in Linux systems.
+Installs and configures NTP client in CentOS/RHEL systems.
 
 
 ## Role Variables
