@@ -1,12 +1,8 @@
 ---
-dependencies: []
-
 galaxy_info:
-  author: viniciusfs
-  description: Install and configure NTP client for Linux.
+  author: Vinícius Figueiredo
+  description: Installs and configures NTP client in CentOS/RHEL systems.
   license: MIT
-
-  min_ansible_version: 1.2
 
   platforms:
     - name: EL
@@ -15,3 +11,5 @@ galaxy_info:
 
   galaxy_tags:
     - system
+
+dependencies: []
