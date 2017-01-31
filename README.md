@@ -1,5 +1,7 @@
 # Ansible role: NTP
 
+[![Build Status](https://travis-ci.org/viniciusfs/ansible-role-ntp.svg?branch=master)](https://travis-ci.org/viniciusfs/ansible-role-ntp)
+
 Installs and configures NTP client in CentOS/RHEL systems.
 
 
