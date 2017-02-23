@@ -13,7 +13,7 @@ Installs and configures NTP client in CentOS/RHEL systems.
     - Default: `True`
 
 * `ntp_config_servers`:
-    - Description: List of NTP ervers to sync
+    - Description: List of NTP servers to sync
     - Default: `[ "0.pool.ntp.org", "1.pool.ntp.org", "2.pool.ntp.org" ]`
 
 * `ntp_config_timezone`:
